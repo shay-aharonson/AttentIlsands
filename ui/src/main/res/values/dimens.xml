@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Grid Display  -->
+    <dimen name="item_grid_cell_diameter">24dp</dimen>
+    <dimen name="item_grid_cell_margin">1dp</dimen>
+
+    <dimen name="activity_grid_fab_diameter">56dp</dimen>
+    <dimen name="activity_grid_fab_margin">12dp</dimen>
+
+    <!--  Settings Display  -->
+    <dimen name="input_grid_dimensions_edit_width">100dp</dimen>
+    <dimen name="button_randomize_width">200dp</dimen>
+    <dimen name="button_draw_width">200dp</dimen>
+</resources>

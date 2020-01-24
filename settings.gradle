@@ -1,0 +1,2 @@
+include ':app', ':ui', ':presentation', ':utility'
+rootProject.name='AttentIslands'

@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
+
+
+    defaultConfig {
+        minSdkVersion 24
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // UI
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation 'com.google.android.material:material:1.2.0-alpha04'
+
+    // RX Java
+    implementation "io.reactivex.rxjava2:rxandroid:${rootProject.ext.rxAndroidVersion}"
+    implementation "io.reactivex.rxjava2:rxjava:${rootProject.ext.rxVersion}"
+    implementation "io.reactivex.rxjava2:rxkotlin:${rootProject.ext.rxKotlinVersion}"
+    implementation "com.trello.rxlifecycle2:rxlifecycle:${rootProject.ext.rxLifecycleVersion}"
+    implementation "com.trello.rxlifecycle2:rxlifecycle-android:${rootProject.ext.rxLifecycleVersion}"
+    implementation "com.trello.rxlifecycle2:rxlifecycle-components:${rootProject.ext.rxLifecycleVersion}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // Dependency Injection: Dagger
+    api "com.google.dagger:dagger:${daggerVersion}"
+    kapt "com.google.dagger:dagger-compiler:${rootProject.ext.daggerVersion}"
+    compileOnly "javax.annotation:jsr250-api:${rootProject.ext.jsr250Version}"
+
+    implementation project(path: ':presentation')
+    implementation project(path: ':utility')
+}

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ui</string>
+
+    <!--  Grid Display Strings  -->
+    <string name="total_island_count">You have discovered %d islands!</string>
+
+    <!--  Settings Display Strings  -->
+    <string name="title_text_matrix_dimensions">Matrix dimensions</string>
+    <string name="input_hint_rows">rows</string>
+    <string name="input_hint_columns">columns</string>
+    <string name="button_random_text">randomize</string>
+    <string name="button_draw_text">draw</string>
+</resources>
