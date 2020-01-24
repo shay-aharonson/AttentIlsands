@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.atten.presentation.settings.SettingsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settings_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/beach_photo">
+
+        <TextView
+            android:id="@+id/title_dimensions_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_text_matrix_dimensions"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            style="@style/EditTextGridInput"
+            android:id="@+id/input_rows_edit"
+            android:hint="@string/input_hint_rows"
+            app:layout_constraintEnd_toStartOf="@+id/input_columns_edit"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_dimensions_text" />
+
+        <EditText
+            style="@style/EditTextGridInput"
+            android:id="@+id/input_columns_edit"
+            android:hint="@string/input_hint_columns"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/input_rows_edit"
+            app:layout_constraintTop_toBottomOf="@+id/title_dimensions_text" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_random"
+            android:layout_width="@dimen/button_randomize_width"
+            android:layout_height="wrap_content"
+            android:enabled="@{viewModel.isValid}"
+            android:onClick="@{() -> viewModel.onRandomizeClicked()}"
+            android:text="@string/button_random_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input_rows_edit" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_draw"
+            android:layout_width="@dimen/button_draw_width"
+            android:layout_height="wrap_content"
+            android:enabled="@{viewModel.isValid}"
+            android:onClick="@{() -> viewModel.onDrawClicked()}"
+            android:text="@string/button_draw_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_random" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

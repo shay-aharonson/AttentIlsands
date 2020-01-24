@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="gridViewModel"
+            type="com.atten.presentation.grid.GridViewModel"/>
+        <variable
+            name="viewModel"
+            type="com.atten.presentation.grid.CellViewModel" />
+    </data>
+
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_margin="@dimen/item_grid_cell_margin"
+        android:id="@+id/item_grid_button"
+        android:layout_width="@dimen/item_grid_cell_diameter"
+        android:layout_height="@dimen/item_grid_cell_diameter"
+        android:clickable="@{!gridViewModel.gridLock}"
+        android:onClick="@{() -> viewModel.cellClicked()}"/>
+</layout>
